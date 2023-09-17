@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Backend\PublicIP\JsonResources\" />
     <Folder Include="Frontend\" />
     <Folder Include="AppResources\" />
   </ItemGroup>
