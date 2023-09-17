@@ -2,30 +2,30 @@
 {
     internal class PIPSetters
     {
-        string? ip { get; set; }
-        long ip_decimal { get; set; }
-        string? country { get; set; }
-        string? country_iso { get; set; }
-        bool country_eu { get; set; }
-        string? region_name { get; set; }
-        string? region_code { get; set; }
-        int metro_code { get; set; }
-        string? zip_code { get; set; }
-        string? city { get; set; }
-        double? latitude { get; set; }
-        double? longitude { get; set; }
-        string? time_zone { get; set; }
-        string? asn { get; set; }
-        string? asn_org { get; set; }
-        string? hostname { get; set; }
-        UserAgent? user_agent { get; set; }
+        public string? ip { get; set; }
+        public long ip_decimal { get; set; }
+        public string? country { get; set; }
+        public string? country_iso { get; set; }
+        public bool country_eu { get; set; }
+        public string? region_name { get; set; }
+        public string? region_code { get; set; }
+        public int metro_code { get; set; }
+        public string? zip_code { get; set; }
+        public string? city { get; set; }
+        public double? latitude { get; set; }
+        public double? longitude { get; set; }
+        public string? time_zone { get; set; }
+        public string? asn { get; set; }
+        public string? asn_org { get; set; }
+        public string? hostname { get; set; }
+        public UserAgent? user_agent { get; set; }
     }
 
     internal class UserAgent
     {
-        string? product { get; set; }
-        string? version { get; set; }
-        string? comment { get; set; }
-        string? raw_value { get; set; }
+        public string? product { get; set; }
+        public string? version { get; set; }
+        public string? comment { get; set; }
+        public string? raw_value { get; set; }
     }
 }
