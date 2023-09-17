@@ -8,9 +8,20 @@ namespace PIPIT.Backend.WinRegistry
         public static void RegisterApp(string appName, string appVersion)
         {
             /* + Create a folder with the apps name and hold regkey values that 
-             *   show when app was firt launched in "Software\\" folder
+             *   show when app was firt launched, in "Software\\" Regkey folder
              *       - Regkey value: InitDate (DateTime) - Timestamp of when app was first launched
              *       - Regkey value: StartupEnabled (bool) - True or False if the tray app launches during startup (editable) */
+        }
+
+        public static bool ParseStartupValue(string parseType)
+        {
+            using (RegistryKey regKey = Registry.CurrentUser.OpenSubKey("Software\\", false)!)
+            {
+                if (regKey != null)
+                {
+                    regKey.
+                }
+            }
         }
 
         public static void AddToStartup(string appName)

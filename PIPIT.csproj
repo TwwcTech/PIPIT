@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Frontend\" />
-    <Folder Include="AppResources\" />
   </ItemGroup>
 
   <ItemGroup>
