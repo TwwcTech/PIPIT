@@ -24,14 +24,19 @@ namespace PIPIT
                     TrayIcon.Visible = true;
                     Close();
                 }
-                else
-                {
-
-                }
+                TrayIcon.Visible = true;
             }
             else
             {
-                // Code goes here
+                DialogResult dialogResult = MessageBox.Show("New device detected, you will need to configure app settings.\nPress 'Yes' to Continue or 'No' to exit.", "New Device Setup", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    Dispose();
+                }
             }
         }
 
@@ -47,7 +52,7 @@ namespace PIPIT
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Exit menu item
+            Dispose(true);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
