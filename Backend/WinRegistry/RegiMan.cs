@@ -18,22 +18,6 @@ namespace PIPIT.Backend.WinRegistry
             }
         }
 
-
-        public static bool ParseStartupValue()
-        {
-            using (RegistryKey regKey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", false)!)
-            {
-                if (regKey != null)
-                {
-                    try
-                    {
-                        return (bool)regKey.GetValue(StaticResources.AppName)!;
-                    }
-                    catch (Exception ex) { ex.ToString(); }
-                }
-            }
-            return false;
-        }
         public static void AddToStartup()
         {
             using (RegistryKey regKey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true)!) // Use "SOFTWARE" if having errors
@@ -50,6 +34,22 @@ namespace PIPIT.Backend.WinRegistry
                     catch (Exception ex) { ex.ToString(); }
                 }
             }
+        }
+
+        public static bool ParseStartupValue()
+        {
+            using (RegistryKey regKey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", false)!)
+            {
+                if (regKey != null)
+                {
+                    try
+                    {
+                        return (bool)regKey.GetValue(StaticResources.AppName)!;
+                    }
+                    catch (Exception ex) { ex.ToString(); }
+                }
+            }
+            return false;
         }
 
         public static void RemoveFromStartup()
