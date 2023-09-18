@@ -5,8 +5,8 @@ namespace PIPIT.AppResources
 {
     internal class StaticResources
     {
-        public const string AppName = "";
-        public const string Version = "";
+        public const string AppName = "PIPIT";
+        public const string Version = "1.0";
 
         public static string DateTimeStamp
         {
