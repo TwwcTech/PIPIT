@@ -1,4 +1,5 @@
 using PIPIT.Backend.WinRegistry;
+using System.Diagnostics;
 
 namespace PIPIT
 {
@@ -26,7 +27,7 @@ namespace PIPIT
                 switch (dialogResult)
                 {
                     case DialogResult.Yes:
-                        // Code goes here
+                        RegiMan.RegisterApp();
                         break;
                     case DialogResult.No:
                         Dispose();
@@ -38,11 +39,19 @@ namespace PIPIT
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowDialog(this);
+            if (RegiMan.IsStartupEnabled())
+            {
+                // Code to make the "Enable on Startup" check box is true
+            }
         }
 
         private void ifconfigcoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // ifconfig.co menu item
+            try
+            {
+                Process.Start(@"https://ifconfig.co");
+            }
+            catch (Exception ex) { ex.ToString(); }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
