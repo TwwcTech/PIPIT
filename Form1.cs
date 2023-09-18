@@ -27,7 +27,8 @@ namespace PIPIT
                 switch (dialogResult)
                 {
                     case DialogResult.Yes:
-                        RegiMan.RegisterApp();
+                        // Enable when ready
+                        //RegiMan.RegisterApp();
                         break;
                     case DialogResult.No:
                         Dispose();
@@ -39,6 +40,7 @@ namespace PIPIT
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowDialog(this);
+
             if (RegiMan.IsStartupEnabled())
             {
                 // Code to make the "Enable on Startup" check box is true
@@ -63,6 +65,7 @@ namespace PIPIT
         {
             e.Cancel = true;
             WindowState = FormWindowState.Minimized;
+            Visible = false;
             Hide();
         }
     }
