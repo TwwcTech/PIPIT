@@ -52,7 +52,7 @@ namespace PIPIT.Backend.WinRegistry
             }
         }
 
-        public static bool ParseStartupValue()
+        public static bool IsStartupEnabled()
         {
             using (RegistryKey regKey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", false)!)
             {
