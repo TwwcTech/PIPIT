@@ -17,7 +17,14 @@ namespace PIPIT.AppResources
         public static string ShortcutPath
         {
             get { return ShortcutPath; }
-            private set { ShortcutPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, $"{AppName}.lnk"); }
+            private set 
+            {
+                try
+                {
+                    ShortcutPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, $"{AppName}.lnk");
+                }
+                catch (Exception ex) { ex.ToString(); }
+            }
         }
     }
 }
