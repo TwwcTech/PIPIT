@@ -1,30 +1,42 @@
 ﻿using Microsoft.Win32;
+using PIPIT.AppResources;
 using System.Reflection;
 
 namespace PIPIT.Backend.WinRegistry
 {
     internal class RegiMan
     {
-        public static void RegisterApp(string appName, string appVersion)
+        public static void RegisterApp(bool startupEnabled)
         {
-            /* + Create a folder with the apps name and hold regkey values that 
-             *   show when app was firt launched, in "Software\\" Regkey folder
-             *       - Regkey value: InitDate (DateTime) - Timestamp of when app was first launched
-             *       - Regkey value: StartupEnabled (bool) - True or False if the tray app launches during startup (editable) */
-        }
-
-        public static bool ParseStartupValue(string parseType)
-        {
-            using (RegistryKey regKey = Registry.CurrentUser.OpenSubKey("Software\\", false)!)
+            using (RegistryKey regKey = Registry.CurrentUser.CreateSubKey($"Software\\{StaticResources.AppName}"))
             {
-                if (regKey != null)
+                try
                 {
-                    regKey.
+                    regKey.SetValue("InitDate", StaticResources.DateTimeStamp);
+                    regKey.SetValue("AppVersion", StaticResources.Version);
+                    regKey.SetValue("StartupEnabled", startupEnabled.ToString());
                 }
+                catch (Exception ex) { ex.ToString(); }
             }
         }
 
-        public static void AddToStartup(string appName)
+
+        public static bool ParseStartupValue()
+        {
+            using (RegistryKey regKey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", false)!)
+            {
+                if (regKey != null)
+                {
+                    try
+                    {
+                        return (bool)regKey.GetValue(StaticResources.AppName)!;
+                    }
+                    catch (Exception ex) { ex.ToString(); }
+                }
+            }
+            return false;
+        }
+        public static void AddToStartup()
         {
             using (RegistryKey regKey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true)!) // Use "SOFTWARE" if having errors
             {
@@ -32,11 +44,16 @@ namespace PIPIT.Backend.WinRegistry
                 {
                     try
                     {
-                        regKey.SetValue(appName, Assembly.GetExecutingAssembly().Location);
+                        regKey.SetValue(StaticResources.AppName, Assembly.GetExecutingAssembly().Location);
                     }
-                    catch (Exception ex) { throw new Exception(ex.ToString()); }
+                    catch (Exception ex) { ex.ToString(); }
                 }
             }
+        }
+
+        public static void RemoveFromStartup()
+        {
+            using (RegistryKey regKey = Registry.CurrentUser.)
         }
     }
 }
