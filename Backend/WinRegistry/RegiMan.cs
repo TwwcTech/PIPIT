@@ -1,6 +1,5 @@
 ﻿using Microsoft.Win32;
 using PIPIT.AppResources;
-using System.Reflection;
 
 namespace PIPIT.Backend.WinRegistry
 {
