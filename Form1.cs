@@ -23,13 +23,14 @@ namespace PIPIT
             else
             {
                 DialogResult dialogResult = MessageBox.Show("New device detected, you will need to configure app settings.\nPress 'Yes' to Continue or 'No' to exit.", "New Device Setup", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dialogResult == DialogResult.Yes)
+                switch (dialogResult)
                 {
-
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    Dispose();
+                    case DialogResult.Yes:
+                        // Code goes here
+                        break;
+                    case DialogResult.No:
+                        Dispose();
+                        break;
                 }
             }
         }
