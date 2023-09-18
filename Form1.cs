@@ -12,8 +12,10 @@ namespace PIPIT
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // Check if this is a new device
             if (RegiMan.IsAppRegistered())
             {
+                // Check if startup is enabled
                 if (RegiMan.IsStartupEnabled())
                 {
                     TrayIcon.Visible = true;
@@ -23,12 +25,13 @@ namespace PIPIT
             }
             else
             {
-                DialogResult dialogResult = MessageBox.Show("New device detected, you will need to configure app settings.\nPress 'Yes' to Continue or 'No' to exit.", "New Device Setup", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult dialogResult = MessageBox.Show("New device detected, continue", "New Device Setup", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 switch (dialogResult)
                 {
                     case DialogResult.Yes:
                         // Enable when ready
                         //RegiMan.RegisterApp();
+                        //TrayIcon.Visible = true;
                         break;
                     case DialogResult.No:
                         Dispose();
