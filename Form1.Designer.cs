@@ -31,12 +31,9 @@
             components = new System.ComponentModel.Container();
             TrayIcon = new NotifyIcon(components);
             TrayIconMenu = new ContextMenuStrip(components);
-            opToolStripMenuItem = new ToolStripMenuItem();
-            webToolStripMenuItem = new ToolStripMenuItem();
+            optionsToolStripMenuItem = new ToolStripMenuItem();
+            ifconfigcoToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
-            helpToolStripMenuItem = new ToolStripMenuItem();
-            aboutToolStripMenuItem = new ToolStripMenuItem();
-            toolStripSeparator2 = new ToolStripSeparator();
             exitToolStripMenuItem = new ToolStripMenuItem();
             TrayIconMenu.SuspendLayout();
             SuspendLayout();
@@ -50,49 +47,35 @@
             // TrayIconMenu
             // 
             TrayIconMenu.ImageScalingSize = new Size(24, 24);
-            TrayIconMenu.Items.AddRange(new ToolStripItem[] { opToolStripMenuItem, webToolStripMenuItem, toolStripSeparator1, helpToolStripMenuItem, aboutToolStripMenuItem, toolStripSeparator2, exitToolStripMenuItem });
+            TrayIconMenu.Items.AddRange(new ToolStripItem[] { optionsToolStripMenuItem, ifconfigcoToolStripMenuItem, toolStripSeparator1, exitToolStripMenuItem });
             TrayIconMenu.Name = "TrayIconMenu";
-            TrayIconMenu.Size = new Size(241, 209);
+            TrayIconMenu.Size = new Size(241, 139);
             // 
-            // opToolStripMenuItem
+            // optionsToolStripMenuItem
             // 
-            opToolStripMenuItem.Name = "opToolStripMenuItem";
-            opToolStripMenuItem.Size = new Size(240, 32);
-            opToolStripMenuItem.Text = "Options";
+            optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            optionsToolStripMenuItem.Size = new Size(240, 32);
+            optionsToolStripMenuItem.Text = "Options";
+            optionsToolStripMenuItem.Click += optionsToolStripMenuItem_Click;
             // 
-            // webToolStripMenuItem
+            // ifconfigcoToolStripMenuItem
             // 
-            webToolStripMenuItem.Name = "webToolStripMenuItem";
-            webToolStripMenuItem.Size = new Size(240, 32);
-            webToolStripMenuItem.Text = "ifconfig.co";
+            ifconfigcoToolStripMenuItem.Name = "ifconfigcoToolStripMenuItem";
+            ifconfigcoToolStripMenuItem.Size = new Size(240, 32);
+            ifconfigcoToolStripMenuItem.Text = "ifconfig.co";
+            ifconfigcoToolStripMenuItem.Click += ifconfigcoToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(237, 6);
             // 
-            // helpToolStripMenuItem
-            // 
-            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            helpToolStripMenuItem.Size = new Size(240, 32);
-            helpToolStripMenuItem.Text = "Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(240, 32);
-            aboutToolStripMenuItem.Text = "About";
-            // 
-            // toolStripSeparator2
-            // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(237, 6);
-            // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             exitToolStripMenuItem.Size = new Size(240, 32);
             exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // MainForm
             // 
@@ -114,12 +97,9 @@
 
         private NotifyIcon TrayIcon;
         private ContextMenuStrip TrayIconMenu;
-        private ToolStripMenuItem opToolStripMenuItem;
-        private ToolStripMenuItem webToolStripMenuItem;
+        private ToolStripMenuItem optionsToolStripMenuItem;
+        private ToolStripMenuItem ifconfigcoToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripMenuItem helpToolStripMenuItem;
-        private ToolStripMenuItem aboutToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem exitToolStripMenuItem;
     }
 }
