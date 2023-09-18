@@ -6,7 +6,7 @@ namespace PIPIT.Backend.WinRegistry
 {
     internal class RegiMan
     {
-        public static void RegisterApp(bool startupEnabled)
+        public static void RegisterApp()
         {
             using (RegistryKey regKey = Registry.CurrentUser.CreateSubKey($"Software\\{StaticResources.AppName}"))
             {
@@ -14,7 +14,6 @@ namespace PIPIT.Backend.WinRegistry
                 {
                     regKey.SetValue("InitDate", StaticResources.DateTimeStamp);
                     regKey.SetValue("AppVersion", StaticResources.Version);
-                    regKey.SetValue("StartupEnabled", startupEnabled.ToString());
                 }
                 catch (Exception ex) { ex.ToString(); }
             }
@@ -48,7 +47,6 @@ namespace PIPIT.Backend.WinRegistry
                         {
                             regKey.SetValue(StaticResources.AppName, StaticResources.ShortcutPath);
                         }
-                        return;
                     }
                     catch (Exception ex) { ex.ToString(); }
                 }
@@ -57,7 +55,17 @@ namespace PIPIT.Backend.WinRegistry
 
         public static void RemoveFromStartup()
         {
-            using (RegistryKey regKey = Registry.CurrentUser.)
+            using (RegistryKey regKey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true)!)
+            {
+                if (regKey != null)
+                {
+                    try
+                    {
+                        regKey.DeleteSubKey(StaticResources.AppName, false);
+                    }
+                    catch (Exception ex) { ex.ToString(); }
+                }
+            }
         }
     }
 }
