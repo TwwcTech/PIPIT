@@ -17,19 +17,21 @@ namespace PIPIT
              *     is "true" or "false":
              *     > true = skip the window and only start the trayicon app
              *     > false = open the options window on startup */
-            bool registeredStatus = RegiMan.IsAppRegistered();
-            if (registeredStatus)
+            if (RegiMan.IsAppRegistered())
             {
-                bool isStartupEnabled = RegiMan.IsStartupEnabled();
-                if (isStartupEnabled)
+                if (RegiMan.IsStartupEnabled())
                 {
-                    Hide();
                     TrayIcon.Visible = true;
+                    Close();
                 }
                 else
                 {
 
                 }
+            }
+            else
+            {
+                // Code goes here
             }
         }
 
