@@ -17,7 +17,7 @@ namespace PIPIT.AppResources
         public static string ShortcutPath
         {
             get { return ShortcutPath; }
-            private set 
+            private set
             {
                 try
                 {
