@@ -12,10 +12,8 @@ namespace PIPIT
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // Check if this is a new device
             if (RegiMan.IsAppRegistered())
             {
-                // Check if startup is enabled
                 if (RegiMan.IsStartupEnabled())
                 {
                     TrayIcon.Visible = true;
