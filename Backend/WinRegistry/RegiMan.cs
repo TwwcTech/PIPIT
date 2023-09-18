@@ -44,7 +44,11 @@ namespace PIPIT.Backend.WinRegistry
                 {
                     try
                     {
-                        regKey.SetValue(StaticResources.AppName, Assembly.GetExecutingAssembly().Location);
+                        if (File.Exists(StaticResources.ShortcutPath))
+                        {
+                            regKey.SetValue(StaticResources.AppName, StaticResources.ShortcutPath);
+                        }
+                        return;
                     }
                     catch (Exception ex) { ex.ToString(); }
                 }
