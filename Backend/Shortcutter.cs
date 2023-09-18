@@ -1,6 +1,5 @@
 ﻿using PIPIT.AppResources;
 using System.Reflection;
-using System.Security.Policy;
 
 namespace PIPIT.Backend
 {
