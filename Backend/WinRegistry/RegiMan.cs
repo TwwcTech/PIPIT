@@ -60,7 +60,10 @@ namespace PIPIT.Backend.WinRegistry
                 {
                     try
                     {
-                        return (bool)regKey.GetValue(StaticResources.AppName)!;
+                        if (regKey.GetValue(StaticResources.AppName) != null)
+                        {
+                            return true;
+                        }
                     }
                     catch (Exception ex) { ex.ToString(); }
                 }
