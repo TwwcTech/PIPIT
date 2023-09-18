@@ -18,6 +18,22 @@ namespace PIPIT.Backend.WinRegistry
             }
         }
 
+        public static bool IsAppRegistered()
+        {
+            using (RegistryKey regStatusKey = Registry.CurrentUser.OpenSubKey($"Software\\{StaticResources.AppName}")!)
+            {
+                try
+                {
+                    if (regStatusKey != null)
+                    {
+                        return true;
+                    }
+                }
+                catch (Exception ex) { ex.ToString(); }
+            }
+            return false;
+        }
+
         public static void AddToStartup()
         {
             using (RegistryKey regKey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true)!) // Use "SOFTWARE" if having errors
