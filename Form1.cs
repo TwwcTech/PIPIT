@@ -11,7 +11,7 @@ namespace PIPIT
         {
             /* + Check if the app has ran before (registerd):
              *   - if not prompt the user with the setup window
-             *   - if it has, check if the "DontShowSetup" option
+             *   - if it has, check if the "IsStartupEnabled" option
              *     is "true" or "false":
              *     > true = skip the window and only start the trayicon app
              *     > false = open the setup window on startup */
