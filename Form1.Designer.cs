@@ -43,6 +43,7 @@
             // 
             // TrayIcon
             // 
+            TrayIcon.ContextMenuStrip = TrayIconMenu;
             TrayIcon.Text = "notifyIcon1";
             TrayIcon.Visible = true;
             // 
