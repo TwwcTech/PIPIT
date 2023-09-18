@@ -14,10 +14,10 @@ namespace PIPIT
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // Checks if this is a new device
+            // If this is not a new device
             if (RegiMan.IsAppRegistered())
             {
-                // Checks if startup is enabled
+                // If startup is enabled
                 if (RegiMan.IsStartupEnabled())
                 {
                     TrayIcon.Visible = true;
@@ -25,6 +25,7 @@ namespace PIPIT
                 }
                 TrayIcon.Visible = true;
             }
+            // If this is a new device
             else
             {
                 // Warning box showing on first time run, yes to continue and no to exit
@@ -32,9 +33,8 @@ namespace PIPIT
                 switch (dialogResult)
                 {
                     case DialogResult.Yes:
-                        // Enable when ready
                         //RegiMan.RegisterApp();
-                        //TrayIcon.Visible = true;
+                        TrayIcon.Visible = true;
                         break;
                     case DialogResult.No:
                         Dispose();
@@ -68,8 +68,10 @@ namespace PIPIT
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Show main PIPIT window
             ShowDialog(this);
 
+            // If app is in startup folder, check the box
             if (RegiMan.IsStartupEnabled())
             {
                 EnableStartupCheckbox.Checked = true;
@@ -80,6 +82,7 @@ namespace PIPIT
         {
             try
             {
+                // Opens the link with default browser
                 Process.Start(@"https://ifconfig.co");
             }
             catch (Exception ex) { ex.ToString(); }
@@ -87,11 +90,13 @@ namespace PIPIT
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Exits the app entirely
             Dispose(true);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // Minimizes and hides all controls when closing app
             e.Cancel = true;
             WindowState = FormWindowState.Minimized;
             Visible = false;
