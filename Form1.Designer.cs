@@ -49,31 +49,31 @@
             TrayIconMenu.ImageScalingSize = new Size(24, 24);
             TrayIconMenu.Items.AddRange(new ToolStripItem[] { optionsToolStripMenuItem, ifconfigcoToolStripMenuItem, toolStripSeparator1, exitToolStripMenuItem });
             TrayIconMenu.Name = "TrayIconMenu";
-            TrayIconMenu.Size = new Size(241, 139);
+            TrayIconMenu.Size = new Size(168, 106);
             // 
             // optionsToolStripMenuItem
             // 
             optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            optionsToolStripMenuItem.Size = new Size(240, 32);
+            optionsToolStripMenuItem.Size = new Size(167, 32);
             optionsToolStripMenuItem.Text = "Options";
             optionsToolStripMenuItem.Click += optionsToolStripMenuItem_Click;
             // 
             // ifconfigcoToolStripMenuItem
             // 
             ifconfigcoToolStripMenuItem.Name = "ifconfigcoToolStripMenuItem";
-            ifconfigcoToolStripMenuItem.Size = new Size(240, 32);
+            ifconfigcoToolStripMenuItem.Size = new Size(167, 32);
             ifconfigcoToolStripMenuItem.Text = "ifconfig.co";
             ifconfigcoToolStripMenuItem.Click += ifconfigcoToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(237, 6);
+            toolStripSeparator1.Size = new Size(164, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(240, 32);
+            exitToolStripMenuItem.Size = new Size(167, 32);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -88,6 +88,7 @@
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Public IP Info Tool Setup";
+            FormClosing += MainForm_FormClosing;
             Load += MainForm_Load;
             TrayIconMenu.ResumeLayout(false);
             ResumeLayout(false);
