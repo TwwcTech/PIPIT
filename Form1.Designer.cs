@@ -35,6 +35,7 @@
             ifconfigcoToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             exitToolStripMenuItem = new ToolStripMenuItem();
+            EnableStartupCheckbox = new CheckBox();
             TrayIconMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -77,21 +78,35 @@
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
+            // EnableStartupCheckbox
+            // 
+            EnableStartupCheckbox.AutoSize = true;
+            EnableStartupCheckbox.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            EnableStartupCheckbox.Location = new Point(274, 206);
+            EnableStartupCheckbox.Name = "EnableStartupCheckbox";
+            EnableStartupCheckbox.Size = new Size(248, 34);
+            EnableStartupCheckbox.TabIndex = 1;
+            EnableStartupCheckbox.Text = "Enable on Startup";
+            EnableStartupCheckbox.UseVisualStyleBackColor = true;
+            EnableStartupCheckbox.CheckedChanged += EnableStartupCheckbox_CheckedChanged;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(EnableStartupCheckbox);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             MaximizeBox = false;
             Name = "MainForm";
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Public IP Info Tool Setup";
+            Text = "PIPIT";
             FormClosing += MainForm_FormClosing;
             Load += MainForm_Load;
             TrayIconMenu.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -102,5 +117,6 @@
         private ToolStripMenuItem ifconfigcoToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem exitToolStripMenuItem;
+        private CheckBox EnableStartupCheckbox;
     }
 }
