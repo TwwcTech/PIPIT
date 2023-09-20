@@ -7,7 +7,7 @@ namespace PIPIT.Backend.PublicIP
     {
         public static async Task<PIPSetters> RequestJson()
         {
-            PIPSetters jsonSetters;
+            //PIPSetters jsonSetters;
             using (HttpClient client = new())
             {
                 try
@@ -15,8 +15,7 @@ namespace PIPIT.Backend.PublicIP
                     client.DefaultRequestHeaders.Add("Accept", "application/json");
                     string jsonContent = await client.GetStringAsync(@"https://ifconfig.co/json");
 
-                    jsonSetters = JsonConvert.DeserializeObject<PIPSetters>(jsonContent)!;
-                    return jsonSetters;
+                    return JsonConvert.DeserializeObject<PIPSetters>(jsonContent)!;
                 }
                 catch (HttpRequestException ex) { throw new HttpRequestException(ex.ToString()); }
             }
