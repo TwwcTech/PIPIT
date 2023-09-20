@@ -8,10 +8,10 @@ namespace PIPIT.AppResources
         public const string AppName = "PIPIT";
         public const string Version = "1.0";
 
-        public static string DateTimeStamp
+        public static string DateStamp
         {
-            get { return DateTimeStamp; }
-            private set { DateTimeStamp = DateTime.Now.ToString("ddMMyyyy"); }
+            get { return DateStamp; }
+            private set { DateStamp = DateTime.Now.ToString("ddMMyyyy"); }
         }
 
         public static string ShortcutPath
