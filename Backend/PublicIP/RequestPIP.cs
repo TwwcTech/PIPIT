@@ -7,7 +7,6 @@ namespace PIPIT.Backend.PublicIP
     {
         public static async Task<PIPSetters> RequestJson()
         {
-            //PIPSetters jsonSetters;
             using (HttpClient client = new())
             {
                 try
