@@ -14,6 +14,7 @@ namespace PIPIT.Frontend
         {
             DateLabel.Text = $"Date : {DateTime.Now.ToString("ddMMyyyy")}";
             CurrentUserLabel.Text = $"Current User : {Environment.UserName}";
+            MachineLabel.Text = Environment.MachineName;
 
             PIPSetters pipSetters = await RequestPIP.RequestJson();
             if (pipSetters != null)
