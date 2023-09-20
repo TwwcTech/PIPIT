@@ -5,6 +5,8 @@ using PIPIT.Frontend;
 
 namespace PIPIT
 {
+    // Dont forget to uncomment the "register device" method after clicking "yes"
+
     public partial class MainForm : Form
     {
         public MainForm()
