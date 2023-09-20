@@ -42,7 +42,7 @@
             // 
             TrayIcon.ContextMenuStrip = TrayIconMenu;
             TrayIcon.Icon = (Icon)resources.GetObject("TrayIcon.Icon");
-            TrayIcon.Text = "notifyIcon1";
+            TrayIcon.Text = "PIPIT";
             TrayIcon.Visible = true;
             // 
             // TrayIconMenu
