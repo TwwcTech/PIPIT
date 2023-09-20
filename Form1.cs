@@ -50,7 +50,7 @@ namespace PIPIT
             // If checked is true add app to startup
             if (EnableStartupCheckbox.Checked)
             {
-                // Checks if shortcut exists
+                // If shortcut does not exist
                 if (!File.Exists(StaticResources.ShortcutPath))
                 {
                     // Create Shortcut
@@ -79,7 +79,6 @@ namespace PIPIT
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Exits the app entirely
             Dispose(true);
         }
 
