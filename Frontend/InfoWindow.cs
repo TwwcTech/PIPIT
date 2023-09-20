@@ -12,6 +12,11 @@ namespace PIPIT.Frontend
 
         private async void InfoWindow_Load(object sender, EventArgs e)
         {
+            InfoWindowToolTip.SetToolTip(IPinfoPanel, "Displays the relative IP information");
+            InfoWindowToolTip.SetToolTip(GeneralInfoPanel, "Displays general information");
+            InfoWindowToolTip.SetToolTip(StartupCheckbox, "Enable app on startup");
+            InfoWindowToolTip.SetToolTip(ExportButton, "Export information to a csv file");
+
             DateLabel.Text = $"Date : {DateTime.Now.ToString("ddMMyyyy")}";
             CurrentUserLabel.Text = $"Current User : {Environment.UserName}";
             MachineLabel.Text = Environment.MachineName;
@@ -34,17 +39,17 @@ namespace PIPIT.Frontend
             }
         }
 
-        private void ZipCodeLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void StartupCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-
+            // Code goes here
         }
 
         private void ExportButton_Click(object sender, EventArgs e)
+        {
+            // Code goes here
+        }
+
+        private void ZipCodeLabel_Click(object sender, EventArgs e)
         {
 
         }
