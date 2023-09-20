@@ -1,6 +1,7 @@
 using PIPIT.AppResources;
 using PIPIT.Backend;
 using PIPIT.Backend.WinRegistry;
+using PIPIT.Frontend;
 
 namespace PIPIT
 {
@@ -68,6 +69,12 @@ namespace PIPIT
                     RegiMan.RemoveFromStartup();
                 }
             }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form infoWindow = new InfoWindow();
+            infoWindow.ShowDialog();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
