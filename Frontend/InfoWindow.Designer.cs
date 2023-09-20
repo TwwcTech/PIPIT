@@ -43,12 +43,12 @@
             CountryLabel = new Label();
             IPLabel = new Label();
             OptionsPanel = new Panel();
+            ExportButton = new Button();
             StartupCheckbox = new CheckBox();
-            OptionsLabel = new Label();
             GeneralInfoPanel = new Panel();
+            MachineLabel = new Label();
             CurrentUserLabel = new Label();
             DateLabel = new Label();
-            MachineLabel = new Label();
             IPinfoPanel.SuspendLayout();
             OptionsPanel.SuspendLayout();
             GeneralInfoPanel.SuspendLayout();
@@ -186,34 +186,35 @@
             // 
             // OptionsPanel
             // 
-            OptionsPanel.BorderStyle = BorderStyle.FixedSingle;
+            OptionsPanel.Controls.Add(ExportButton);
             OptionsPanel.Controls.Add(StartupCheckbox);
-            OptionsPanel.Controls.Add(OptionsLabel);
             OptionsPanel.Location = new Point(393, 177);
             OptionsPanel.Name = "OptionsPanel";
-            OptionsPanel.Size = new Size(244, 370);
+            OptionsPanel.Size = new Size(244, 371);
             OptionsPanel.TabIndex = 1;
+            // 
+            // ExportButton
+            // 
+            ExportButton.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            ExportButton.Location = new Point(62, 195);
+            ExportButton.Name = "ExportButton";
+            ExportButton.Size = new Size(112, 49);
+            ExportButton.TabIndex = 2;
+            ExportButton.Text = "Export";
+            ExportButton.UseVisualStyleBackColor = true;
+            ExportButton.Click += ExportButton_Click;
             // 
             // StartupCheckbox
             // 
             StartupCheckbox.AutoSize = true;
             StartupCheckbox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            StartupCheckbox.Location = new Point(36, 204);
+            StartupCheckbox.Location = new Point(38, 133);
             StartupCheckbox.Name = "StartupCheckbox";
             StartupCheckbox.Size = new Size(165, 32);
             StartupCheckbox.TabIndex = 1;
             StartupCheckbox.Text = "Enable Startup";
             StartupCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // OptionsLabel
-            // 
-            OptionsLabel.AutoSize = true;
-            OptionsLabel.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            OptionsLabel.Location = new Point(72, 111);
-            OptionsLabel.Name = "OptionsLabel";
-            OptionsLabel.Size = new Size(100, 28);
-            OptionsLabel.TabIndex = 0;
-            OptionsLabel.Text = "OPTIONS";
+            StartupCheckbox.CheckedChanged += StartupCheckbox_CheckedChanged;
             // 
             // GeneralInfoPanel
             // 
@@ -226,6 +227,15 @@
             GeneralInfoPanel.Size = new Size(244, 159);
             GeneralInfoPanel.TabIndex = 2;
             GeneralInfoPanel.Paint += GeneralInfoPanel_Paint;
+            // 
+            // MachineLabel
+            // 
+            MachineLabel.AutoSize = true;
+            MachineLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            MachineLabel.Location = new Point(15, 112);
+            MachineLabel.Name = "MachineLabel";
+            MachineLabel.Size = new Size(0, 28);
+            MachineLabel.TabIndex = 2;
             // 
             // CurrentUserLabel
             // 
@@ -244,15 +254,6 @@
             DateLabel.Name = "DateLabel";
             DateLabel.Size = new Size(0, 28);
             DateLabel.TabIndex = 0;
-            // 
-            // MachineLabel
-            // 
-            MachineLabel.AutoSize = true;
-            MachineLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            MachineLabel.Location = new Point(15, 105);
-            MachineLabel.Name = "MachineLabel";
-            MachineLabel.Size = new Size(0, 28);
-            MachineLabel.TabIndex = 2;
             // 
             // InfoWindow
             // 
@@ -299,7 +300,7 @@
         private Label CurrentUserLabel;
         private Label DateLabel;
         private CheckBox StartupCheckbox;
-        private Label OptionsLabel;
         private Label MachineLabel;
+        private Button ExportButton;
     }
 }
