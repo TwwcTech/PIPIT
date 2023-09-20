@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             TrayIcon = new NotifyIcon(components);
             TrayIconMenu = new ContextMenuStrip(components);
-            optionsToolStripMenuItem = new ToolStripMenuItem();
-            ifconfigcoToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             exitToolStripMenuItem = new ToolStripMenuItem();
             EnableStartupCheckbox = new CheckBox();
@@ -42,39 +41,26 @@
             // TrayIcon
             // 
             TrayIcon.ContextMenuStrip = TrayIconMenu;
+            TrayIcon.Icon = (Icon)resources.GetObject("TrayIcon.Icon");
             TrayIcon.Text = "notifyIcon1";
             TrayIcon.Visible = true;
             // 
             // TrayIconMenu
             // 
             TrayIconMenu.ImageScalingSize = new Size(24, 24);
-            TrayIconMenu.Items.AddRange(new ToolStripItem[] { optionsToolStripMenuItem, ifconfigcoToolStripMenuItem, toolStripSeparator1, exitToolStripMenuItem });
+            TrayIconMenu.Items.AddRange(new ToolStripItem[] { toolStripSeparator1, exitToolStripMenuItem });
             TrayIconMenu.Name = "TrayIconMenu";
-            TrayIconMenu.Size = new Size(168, 106);
-            // 
-            // optionsToolStripMenuItem
-            // 
-            optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            optionsToolStripMenuItem.Size = new Size(167, 32);
-            optionsToolStripMenuItem.Text = "Options";
-            optionsToolStripMenuItem.Click += optionsToolStripMenuItem_Click;
-            // 
-            // ifconfigcoToolStripMenuItem
-            // 
-            ifconfigcoToolStripMenuItem.Name = "ifconfigcoToolStripMenuItem";
-            ifconfigcoToolStripMenuItem.Size = new Size(167, 32);
-            ifconfigcoToolStripMenuItem.Text = "ifconfig.co";
-            ifconfigcoToolStripMenuItem.Click += ifconfigcoToolStripMenuItem_Click;
+            TrayIconMenu.Size = new Size(112, 42);
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(164, 6);
+            toolStripSeparator1.Size = new Size(108, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(167, 32);
+            exitToolStripMenuItem.Size = new Size(111, 32);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -82,7 +68,7 @@
             // 
             EnableStartupCheckbox.AutoSize = true;
             EnableStartupCheckbox.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            EnableStartupCheckbox.Location = new Point(274, 206);
+            EnableStartupCheckbox.Location = new Point(263, 196);
             EnableStartupCheckbox.Name = "EnableStartupCheckbox";
             EnableStartupCheckbox.Size = new Size(248, 34);
             EnableStartupCheckbox.TabIndex = 1;
@@ -97,6 +83,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(EnableStartupCheckbox);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "MainForm";
             SizeGripStyle = SizeGripStyle.Hide;
@@ -113,10 +100,8 @@
 
         private NotifyIcon TrayIcon;
         private ContextMenuStrip TrayIconMenu;
-        private ToolStripMenuItem optionsToolStripMenuItem;
-        private ToolStripMenuItem ifconfigcoToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem exitToolStripMenuItem;
         private CheckBox EnableStartupCheckbox;
+        private ToolStripSeparator toolStripSeparator1;
     }
 }
