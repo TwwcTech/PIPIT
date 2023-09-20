@@ -39,6 +39,16 @@ namespace PIPIT.Frontend
 
         }
 
+        private void StartupCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void GeneralInfoPanel_Paint(object sender, PaintEventArgs e)
         {
 
