@@ -11,7 +11,7 @@ namespace PIPIT.Backend.WinRegistry
             {
                 try
                 {
-                    regKey.SetValue("InitDate", StaticResources.DateStamp);
+                    regKey.SetValue("InitDate", DateTime.Now.ToString("ddMMyyyy"));
                     regKey.SetValue("AppVersion", StaticResources.Version);
                 }
                 catch (Exception ex) { ex.ToString(); }
