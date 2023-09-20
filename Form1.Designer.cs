@@ -35,6 +35,7 @@
             toolStripSeparator1 = new ToolStripSeparator();
             exitToolStripMenuItem = new ToolStripMenuItem();
             EnableStartupCheckbox = new CheckBox();
+            openToolStripMenuItem = new ToolStripMenuItem();
             TrayIconMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,19 +49,19 @@
             // TrayIconMenu
             // 
             TrayIconMenu.ImageScalingSize = new Size(24, 24);
-            TrayIconMenu.Items.AddRange(new ToolStripItem[] { toolStripSeparator1, exitToolStripMenuItem });
+            TrayIconMenu.Items.AddRange(new ToolStripItem[] { openToolStripMenuItem, toolStripSeparator1, exitToolStripMenuItem });
             TrayIconMenu.Name = "TrayIconMenu";
-            TrayIconMenu.Size = new Size(112, 42);
+            TrayIconMenu.Size = new Size(129, 74);
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(108, 6);
+            toolStripSeparator1.Size = new Size(125, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(111, 32);
+            exitToolStripMenuItem.Size = new Size(128, 32);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -75,6 +76,12 @@
             EnableStartupCheckbox.Text = "Enable on Startup";
             EnableStartupCheckbox.UseVisualStyleBackColor = true;
             EnableStartupCheckbox.CheckedChanged += EnableStartupCheckbox_CheckedChanged;
+            // 
+            // openToolStripMenuItem
+            // 
+            openToolStripMenuItem.Name = "openToolStripMenuItem";
+            openToolStripMenuItem.Size = new Size(128, 32);
+            openToolStripMenuItem.Text = "Open";
             // 
             // MainForm
             // 
@@ -103,5 +110,6 @@
         private ToolStripMenuItem exitToolStripMenuItem;
         private CheckBox EnableStartupCheckbox;
         private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem openToolStripMenuItem;
     }
 }
