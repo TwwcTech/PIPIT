@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InfoWindow));
             IPinfoPanel = new Panel();
             HostnameLabel = new Label();
@@ -49,6 +50,7 @@
             MachineLabel = new Label();
             CurrentUserLabel = new Label();
             DateLabel = new Label();
+            InfoWindowToolTip = new ToolTip(components);
             IPinfoPanel.SuspendLayout();
             OptionsPanel.SuspendLayout();
             GeneralInfoPanel.SuspendLayout();
@@ -302,5 +304,6 @@
         private CheckBox StartupCheckbox;
         private Label MachineLabel;
         private Button ExportButton;
+        private ToolTip InfoWindowToolTip;
     }
 }
