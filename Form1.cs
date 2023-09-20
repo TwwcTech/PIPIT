@@ -1,6 +1,7 @@
 using PIPIT.AppResources;
 using PIPIT.Backend;
 using PIPIT.Backend.WinRegistry;
+using System.Diagnostics;
 
 namespace PIPIT
 {
