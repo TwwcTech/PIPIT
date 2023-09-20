@@ -43,15 +43,20 @@
             CountryLabel = new Label();
             IPLabel = new Label();
             OptionsPanel = new Panel();
+            StartupCheckbox = new CheckBox();
+            OptionsLabel = new Label();
             GeneralInfoPanel = new Panel();
             CurrentUserLabel = new Label();
             DateLabel = new Label();
+            MachineLabel = new Label();
             IPinfoPanel.SuspendLayout();
+            OptionsPanel.SuspendLayout();
             GeneralInfoPanel.SuspendLayout();
             SuspendLayout();
             // 
             // IPinfoPanel
             // 
+            IPinfoPanel.BorderStyle = BorderStyle.FixedSingle;
             IPinfoPanel.Controls.Add(HostnameLabel);
             IPinfoPanel.Controls.Add(ASNOrgLabel);
             IPinfoPanel.Controls.Add(TimeZoneLabel);
@@ -181,13 +186,39 @@
             // 
             // OptionsPanel
             // 
+            OptionsPanel.BorderStyle = BorderStyle.FixedSingle;
+            OptionsPanel.Controls.Add(StartupCheckbox);
+            OptionsPanel.Controls.Add(OptionsLabel);
             OptionsPanel.Location = new Point(393, 177);
             OptionsPanel.Name = "OptionsPanel";
             OptionsPanel.Size = new Size(244, 370);
             OptionsPanel.TabIndex = 1;
             // 
+            // StartupCheckbox
+            // 
+            StartupCheckbox.AutoSize = true;
+            StartupCheckbox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            StartupCheckbox.Location = new Point(36, 204);
+            StartupCheckbox.Name = "StartupCheckbox";
+            StartupCheckbox.Size = new Size(165, 32);
+            StartupCheckbox.TabIndex = 1;
+            StartupCheckbox.Text = "Enable Startup";
+            StartupCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // OptionsLabel
+            // 
+            OptionsLabel.AutoSize = true;
+            OptionsLabel.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            OptionsLabel.Location = new Point(72, 111);
+            OptionsLabel.Name = "OptionsLabel";
+            OptionsLabel.Size = new Size(100, 28);
+            OptionsLabel.TabIndex = 0;
+            OptionsLabel.Text = "OPTIONS";
+            // 
             // GeneralInfoPanel
             // 
+            GeneralInfoPanel.BorderStyle = BorderStyle.FixedSingle;
+            GeneralInfoPanel.Controls.Add(MachineLabel);
             GeneralInfoPanel.Controls.Add(CurrentUserLabel);
             GeneralInfoPanel.Controls.Add(DateLabel);
             GeneralInfoPanel.Location = new Point(393, 12);
@@ -200,7 +231,7 @@
             // 
             CurrentUserLabel.AutoSize = true;
             CurrentUserLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            CurrentUserLabel.Location = new Point(23, 61);
+            CurrentUserLabel.Location = new Point(15, 64);
             CurrentUserLabel.Name = "CurrentUserLabel";
             CurrentUserLabel.Size = new Size(0, 28);
             CurrentUserLabel.TabIndex = 1;
@@ -209,10 +240,19 @@
             // 
             DateLabel.AutoSize = true;
             DateLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            DateLabel.Location = new Point(23, 16);
+            DateLabel.Location = new Point(15, 19);
             DateLabel.Name = "DateLabel";
             DateLabel.Size = new Size(0, 28);
             DateLabel.TabIndex = 0;
+            // 
+            // MachineLabel
+            // 
+            MachineLabel.AutoSize = true;
+            MachineLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            MachineLabel.Location = new Point(15, 105);
+            MachineLabel.Name = "MachineLabel";
+            MachineLabel.Size = new Size(0, 28);
+            MachineLabel.TabIndex = 2;
             // 
             // InfoWindow
             // 
@@ -232,6 +272,8 @@
             Load += InfoWindow_Load;
             IPinfoPanel.ResumeLayout(false);
             IPinfoPanel.PerformLayout();
+            OptionsPanel.ResumeLayout(false);
+            OptionsPanel.PerformLayout();
             GeneralInfoPanel.ResumeLayout(false);
             GeneralInfoPanel.PerformLayout();
             ResumeLayout(false);
@@ -256,5 +298,8 @@
         private Label HostnameLabel;
         private Label CurrentUserLabel;
         private Label DateLabel;
+        private CheckBox StartupCheckbox;
+        private Label OptionsLabel;
+        private Label MachineLabel;
     }
 }
