@@ -1,7 +1,6 @@
 using PIPIT.AppResources;
 using PIPIT.Backend;
 using PIPIT.Backend.WinRegistry;
-using System.Diagnostics;
 
 namespace PIPIT
 {
@@ -31,15 +30,13 @@ namespace PIPIT
             else
             {
                 // Warning box showing on first time run
-                DialogResult dialogResult = MessageBox.Show("New device detected, continue", "New Device Setup", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult dialogResult = MessageBox.Show("New device detected, continue?", "New Device Setup", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 switch (dialogResult)
                 {
-                    // Yes = Continue
                     case DialogResult.Yes:
                         //RegiMan.RegisterApp();
                         TrayIcon.Visible = true;
                         break;
-                    // No = Exit
                     case DialogResult.No:
                         Dispose();
                         break;
@@ -71,29 +68,6 @@ namespace PIPIT
                     RegiMan.RemoveFromStartup();
                 }
             }
-        }
-
-        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Show main PIPIT window
-            ShowDialog(this);
-
-            // If app is in registry
-            if (RegiMan.IsStartupEnabled())
-            {
-                // Check the box
-                EnableStartupCheckbox.Checked = true;
-            }
-        }
-
-        private void ifconfigcoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Opens the link with default browser
-                Process.Start(@"https://ifconfig.co");
-            }
-            catch (Exception ex) { ex.ToString(); }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
