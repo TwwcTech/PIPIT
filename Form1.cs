@@ -21,6 +21,7 @@ namespace PIPIT
                 if (RegiMan.IsStartupEnabled())
                 {
                     // Start the tray icon and close the main window
+                    EnableStartupCheckbox.Checked = true;
                     TrayIcon.Visible = true;
                     Close();
                 }
@@ -35,7 +36,7 @@ namespace PIPIT
                 switch (dialogResult)
                 {
                     case DialogResult.Yes:
-                        //RegiMan.RegisterApp();
+                        RegiMan.RegisterApp();
                         TrayIcon.Visible = true;
                         break;
                     case DialogResult.No:
