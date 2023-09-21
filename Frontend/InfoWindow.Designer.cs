@@ -43,15 +43,12 @@
             ISOLabel = new Label();
             CountryLabel = new Label();
             IPLabel = new Label();
-            OptionsPanel = new Panel();
-            StartupCheckbox = new CheckBox();
             GeneralInfoPanel = new Panel();
             MachineLabel = new Label();
             CurrentUserLabel = new Label();
             DateLabel = new Label();
             InfoWindowToolTip = new ToolTip(components);
             IPinfoPanel.SuspendLayout();
-            OptionsPanel.SuspendLayout();
             GeneralInfoPanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -185,26 +182,6 @@
             IPLabel.Size = new Size(0, 28);
             IPLabel.TabIndex = 0;
             // 
-            // OptionsPanel
-            // 
-            OptionsPanel.Controls.Add(StartupCheckbox);
-            OptionsPanel.Location = new Point(393, 177);
-            OptionsPanel.Name = "OptionsPanel";
-            OptionsPanel.Size = new Size(244, 371);
-            OptionsPanel.TabIndex = 1;
-            // 
-            // StartupCheckbox
-            // 
-            StartupCheckbox.AutoSize = true;
-            StartupCheckbox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            StartupCheckbox.Location = new Point(39, 284);
-            StartupCheckbox.Name = "StartupCheckbox";
-            StartupCheckbox.Size = new Size(165, 32);
-            StartupCheckbox.TabIndex = 1;
-            StartupCheckbox.Text = "Enable Startup";
-            StartupCheckbox.UseVisualStyleBackColor = true;
-            StartupCheckbox.CheckedChanged += StartupCheckbox_CheckedChanged;
-            // 
             // GeneralInfoPanel
             // 
             GeneralInfoPanel.BorderStyle = BorderStyle.FixedSingle;
@@ -249,7 +226,6 @@
             AutoScaleMode = AutoScaleMode.Inherit;
             ClientSize = new Size(649, 559);
             Controls.Add(GeneralInfoPanel);
-            Controls.Add(OptionsPanel);
             Controls.Add(IPinfoPanel);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -262,8 +238,6 @@
             Load += InfoWindow_Load;
             IPinfoPanel.ResumeLayout(false);
             IPinfoPanel.PerformLayout();
-            OptionsPanel.ResumeLayout(false);
-            OptionsPanel.PerformLayout();
             GeneralInfoPanel.ResumeLayout(false);
             GeneralInfoPanel.PerformLayout();
             ResumeLayout(false);
@@ -272,7 +246,6 @@
         #endregion
 
         private Panel IPinfoPanel;
-        private Panel OptionsPanel;
         private Panel GeneralInfoPanel;
         private Label ZipCodeLabel;
         private Label RegionCodeLabel;
@@ -288,7 +261,6 @@
         private Label HostnameLabel;
         private Label CurrentUserLabel;
         private Label DateLabel;
-        private CheckBox StartupCheckbox;
         private Label MachineLabel;
         private ToolTip InfoWindowToolTip;
     }
