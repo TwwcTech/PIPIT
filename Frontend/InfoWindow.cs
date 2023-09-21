@@ -1,8 +1,5 @@
-﻿using PIPIT.AppResources;
-using PIPIT.Backend;
-using PIPIT.Backend.PublicIP;
+﻿using PIPIT.Backend.PublicIP;
 using PIPIT.Backend.PublicIP.PIPResources;
-using PIPIT.Backend.WinRegistry;
 
 namespace PIPIT.Frontend
 {

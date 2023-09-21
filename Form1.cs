@@ -26,7 +26,7 @@ namespace PIPIT
                 }
                 // Only start the tray icon
                 TrayIcon.Visible = true;
-            } 
+            }
             // If this is a new device
             else
             {
