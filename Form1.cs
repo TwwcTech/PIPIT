@@ -5,8 +5,6 @@ using PIPIT.Frontend;
 
 namespace PIPIT
 {
-    // Dont forget to uncomment the "register device" method after clicking "yes"
-
     public partial class MainForm : Form
     {
         public MainForm()
@@ -61,13 +59,10 @@ namespace PIPIT
                 // Add app to startup folder via registry
                 RegiMan.AddToStartup();
             }
-            // If checked is false remove it from startup
             else
             {
-                // Checks to see if app is in startup folder
                 if (RegiMan.IsStartupEnabled())
                 {
-                    // Remove app from startup folder via registry
                     RegiMan.RemoveFromStartup();
                 }
             }
