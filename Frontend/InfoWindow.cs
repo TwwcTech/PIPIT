@@ -1,5 +1,8 @@
-﻿using PIPIT.Backend.PublicIP;
+﻿using PIPIT.AppResources;
+using PIPIT.Backend;
+using PIPIT.Backend.PublicIP;
 using PIPIT.Backend.PublicIP.PIPResources;
+using PIPIT.Backend.WinRegistry;
 
 namespace PIPIT.Frontend
 {
@@ -15,7 +18,6 @@ namespace PIPIT.Frontend
             InfoWindowToolTip.SetToolTip(IPinfoPanel, "Displays the relative IP information");
             InfoWindowToolTip.SetToolTip(GeneralInfoPanel, "Displays general information");
             InfoWindowToolTip.SetToolTip(StartupCheckbox, "Enable app on startup");
-            InfoWindowToolTip.SetToolTip(ExportButton, "Export information to a csv file");
 
             DateLabel.Text = $"Date : {DateTime.Now.ToString("ddMMyyyy")}";
             CurrentUserLabel.Text = $"Current User : {Environment.UserName}";
@@ -41,13 +43,21 @@ namespace PIPIT.Frontend
 
         private void StartupCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            // Code goes here
-        }
-
-        private void ExportButton_Click(object sender, EventArgs e)
-        {
-            // Code goes here
-            // Install EPPlus
+            if (StartupCheckbox.Checked)
+            {
+                if (!File.Exists(StaticResources.ShortcutPath))
+                {
+                    Shortcutter.CreateShortcut();
+                }
+                RegiMan.AddToStartup();
+            }
+            else
+            {
+                if (RegiMan.IsStartupEnabled())
+                {
+                    RegiMan.RemoveFromStartup();
+                }
+            }
         }
 
         private void ZipCodeLabel_Click(object sender, EventArgs e)
