@@ -17,7 +17,6 @@ namespace PIPIT.Frontend
         {
             InfoWindowToolTip.SetToolTip(IPinfoPanel, "Displays the relative IP information");
             InfoWindowToolTip.SetToolTip(GeneralInfoPanel, "Displays general information");
-            InfoWindowToolTip.SetToolTip(StartupCheckbox, "Enable app on startup");
 
             DateLabel.Text = $"Date : {DateTime.Now.ToString("ddMMyyyy")}";
             CurrentUserLabel.Text = $"Current User : {Environment.UserName}";
@@ -38,25 +37,6 @@ namespace PIPIT.Frontend
                 TimeZoneLabel.Text = pipSetters.time_zone;
                 ASNOrgLabel.Text = pipSetters.asn_org;
                 HostnameLabel.Text = pipSetters.hostname;
-            }
-        }
-
-        private void StartupCheckbox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (StartupCheckbox.Checked)
-            {
-                if (!File.Exists(StaticResources.ShortcutPath))
-                {
-                    Shortcutter.CreateShortcut();
-                }
-                RegiMan.AddToStartup();
-            }
-            else
-            {
-                if (RegiMan.IsStartupEnabled())
-                {
-                    RegiMan.RemoveFromStartup();
-                }
             }
         }
 
