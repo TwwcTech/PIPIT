@@ -9,13 +9,17 @@ namespace PIPIT.Backend
         {
             using (StreamWriter shortcutWriter = new StreamWriter(StaticResources.ShortcutPath))
             {
-                shortcutWriter.WriteLine("[Desktop Entry]");
-                shortcutWriter.WriteLine($"Version={StaticResources.Version}");
-                shortcutWriter.WriteLine($"Name={Path.GetFileNameWithoutExtension(StaticResources.ShortcutPath)}");
-                shortcutWriter.WriteLine($"Exec={Assembly.GetExecutingAssembly().Location}");
-                shortcutWriter.WriteLine("Terminal=false");
-                shortcutWriter.WriteLine("Type=Application");
-                shortcutWriter.Flush();
+                try
+                {
+                    shortcutWriter.WriteLine("[Desktop Entry]");
+                    shortcutWriter.WriteLine($"Version={StaticResources.Version}");
+                    shortcutWriter.WriteLine($"Name={Path.GetFileNameWithoutExtension(StaticResources.ShortcutPath)}");
+                    shortcutWriter.WriteLine($"Exec={Assembly.GetExecutingAssembly().Location}");
+                    shortcutWriter.WriteLine("Terminal=false");
+                    shortcutWriter.WriteLine("Type=Application");
+                    shortcutWriter.Flush();
+                }
+                catch (Exception ex) { ex.ToString(); }
             }
         }
     }
