@@ -22,12 +22,11 @@ namespace PIPIT
                 {
                     // Start the tray icon and close the main window
                     EnableStartupCheckbox.Checked = true;
-                    TrayIcon.Visible = true;
                     Close();
                 }
                 // Only start the tray icon
                 TrayIcon.Visible = true;
-            }
+            } 
             // If this is a new device
             else
             {
@@ -60,7 +59,7 @@ namespace PIPIT
                 // Add app to startup folder via registry
                 RegiMan.AddToStartup();
             }
-            else
+            else if (!EnableStartupCheckbox.Checked)
             {
                 if (RegiMan.IsStartupEnabled())
                 {
