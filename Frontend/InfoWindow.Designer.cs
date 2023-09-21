@@ -44,7 +44,6 @@
             CountryLabel = new Label();
             IPLabel = new Label();
             OptionsPanel = new Panel();
-            ExportButton = new Button();
             StartupCheckbox = new CheckBox();
             GeneralInfoPanel = new Panel();
             MachineLabel = new Label();
@@ -188,29 +187,17 @@
             // 
             // OptionsPanel
             // 
-            OptionsPanel.Controls.Add(ExportButton);
             OptionsPanel.Controls.Add(StartupCheckbox);
             OptionsPanel.Location = new Point(393, 177);
             OptionsPanel.Name = "OptionsPanel";
             OptionsPanel.Size = new Size(244, 371);
             OptionsPanel.TabIndex = 1;
             // 
-            // ExportButton
-            // 
-            ExportButton.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            ExportButton.Location = new Point(62, 195);
-            ExportButton.Name = "ExportButton";
-            ExportButton.Size = new Size(112, 49);
-            ExportButton.TabIndex = 2;
-            ExportButton.Text = "Export";
-            ExportButton.UseVisualStyleBackColor = true;
-            ExportButton.Click += ExportButton_Click;
-            // 
             // StartupCheckbox
             // 
             StartupCheckbox.AutoSize = true;
             StartupCheckbox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            StartupCheckbox.Location = new Point(38, 133);
+            StartupCheckbox.Location = new Point(39, 284);
             StartupCheckbox.Name = "StartupCheckbox";
             StartupCheckbox.Size = new Size(165, 32);
             StartupCheckbox.TabIndex = 1;
@@ -303,7 +290,6 @@
         private Label DateLabel;
         private CheckBox StartupCheckbox;
         private Label MachineLabel;
-        private Button ExportButton;
         private ToolTip InfoWindowToolTip;
     }
 }
