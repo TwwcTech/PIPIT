@@ -21,18 +21,16 @@ namespace PIPIT
 
             if (!appRegistrator.IsAppRegistered())
             {
-                DialogResult registerAppResuiult = MessageBox.Show("App is not registerd, would you like to register the app?", "App Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (registerAppResuiult == DialogResult.No)
+                DialogResult registerAppResult = MessageBox.Show("App is not registerd, would you like to register the app?", "App Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (registerAppResult == DialogResult.No)
                 {
                     Application.Exit();
                 }
-                else if (registerAppResuiult == DialogResult.Yes)
+                else if (registerAppResult == DialogResult.Yes)
                 {
                     appRegistrator.RegisterApp();
                 }
             }
-            MessageBox.Show("App is registered");
-
             Shortcutter shortcutter = new();
             if (File.Exists(shortcutter.ShortcutPath))
             {
