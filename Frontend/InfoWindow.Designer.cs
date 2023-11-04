@@ -30,203 +30,63 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InfoWindow));
-            IPinfoPanel = new Panel();
-            HostnameLabel = new Label();
-            ASNOrgLabel = new Label();
-            TimeZoneLabel = new Label();
-            LongLabel = new Label();
-            LatLabel = new Label();
-            CityLabel = new Label();
-            ZipCodeLabel = new Label();
-            RegionCodeLabel = new Label();
-            RegionLabel = new Label();
-            ISOLabel = new Label();
-            CountryLabel = new Label();
             IPLabel = new Label();
-            GeneralInfoPanel = new Panel();
-            MachineLabel = new Label();
-            CurrentUserLabel = new Label();
             DateLabel = new Label();
             InfoWindowToolTip = new ToolTip(components);
-            IPinfoPanel.SuspendLayout();
-            GeneralInfoPanel.SuspendLayout();
+            PIPInfoBox = new GroupBox();
+            LocalInfoBox = new GroupBox();
+            PIPInfoBox.SuspendLayout();
+            LocalInfoBox.SuspendLayout();
             SuspendLayout();
-            // 
-            // IPinfoPanel
-            // 
-            IPinfoPanel.BorderStyle = BorderStyle.FixedSingle;
-            IPinfoPanel.Controls.Add(HostnameLabel);
-            IPinfoPanel.Controls.Add(ASNOrgLabel);
-            IPinfoPanel.Controls.Add(TimeZoneLabel);
-            IPinfoPanel.Controls.Add(LongLabel);
-            IPinfoPanel.Controls.Add(LatLabel);
-            IPinfoPanel.Controls.Add(CityLabel);
-            IPinfoPanel.Controls.Add(ZipCodeLabel);
-            IPinfoPanel.Controls.Add(RegionCodeLabel);
-            IPinfoPanel.Controls.Add(RegionLabel);
-            IPinfoPanel.Controls.Add(ISOLabel);
-            IPinfoPanel.Controls.Add(CountryLabel);
-            IPinfoPanel.Controls.Add(IPLabel);
-            IPinfoPanel.Location = new Point(12, 12);
-            IPinfoPanel.Name = "IPinfoPanel";
-            IPinfoPanel.Size = new Size(375, 536);
-            IPinfoPanel.TabIndex = 0;
-            // 
-            // HostnameLabel
-            // 
-            HostnameLabel.AutoSize = true;
-            HostnameLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            HostnameLabel.Location = new Point(14, 497);
-            HostnameLabel.Name = "HostnameLabel";
-            HostnameLabel.Size = new Size(0, 28);
-            HostnameLabel.TabIndex = 11;
-            // 
-            // ASNOrgLabel
-            // 
-            ASNOrgLabel.AutoSize = true;
-            ASNOrgLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            ASNOrgLabel.Location = new Point(14, 452);
-            ASNOrgLabel.Name = "ASNOrgLabel";
-            ASNOrgLabel.Size = new Size(0, 28);
-            ASNOrgLabel.TabIndex = 10;
-            // 
-            // TimeZoneLabel
-            // 
-            TimeZoneLabel.AutoSize = true;
-            TimeZoneLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            TimeZoneLabel.Location = new Point(14, 404);
-            TimeZoneLabel.Name = "TimeZoneLabel";
-            TimeZoneLabel.Size = new Size(0, 28);
-            TimeZoneLabel.TabIndex = 9;
-            // 
-            // LongLabel
-            // 
-            LongLabel.AutoSize = true;
-            LongLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            LongLabel.Location = new Point(14, 359);
-            LongLabel.Name = "LongLabel";
-            LongLabel.Size = new Size(17, 28);
-            LongLabel.TabIndex = 8;
-            LongLabel.Text = " ";
-            // 
-            // LatLabel
-            // 
-            LatLabel.AutoSize = true;
-            LatLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            LatLabel.Location = new Point(14, 312);
-            LatLabel.Name = "LatLabel";
-            LatLabel.Size = new Size(0, 28);
-            LatLabel.TabIndex = 7;
-            // 
-            // CityLabel
-            // 
-            CityLabel.AutoSize = true;
-            CityLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            CityLabel.Location = new Point(14, 268);
-            CityLabel.Name = "CityLabel";
-            CityLabel.Size = new Size(0, 28);
-            CityLabel.TabIndex = 6;
-            // 
-            // ZipCodeLabel
-            // 
-            ZipCodeLabel.AutoSize = true;
-            ZipCodeLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            ZipCodeLabel.Location = new Point(14, 228);
-            ZipCodeLabel.Name = "ZipCodeLabel";
-            ZipCodeLabel.Size = new Size(0, 28);
-            ZipCodeLabel.TabIndex = 5;
-            ZipCodeLabel.Click += ZipCodeLabel_Click;
-            // 
-            // RegionCodeLabel
-            // 
-            RegionCodeLabel.AutoSize = true;
-            RegionCodeLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            RegionCodeLabel.Location = new Point(14, 185);
-            RegionCodeLabel.Name = "RegionCodeLabel";
-            RegionCodeLabel.Size = new Size(0, 28);
-            RegionCodeLabel.TabIndex = 4;
-            // 
-            // RegionLabel
-            // 
-            RegionLabel.AutoSize = true;
-            RegionLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            RegionLabel.Location = new Point(14, 143);
-            RegionLabel.Name = "RegionLabel";
-            RegionLabel.Size = new Size(0, 28);
-            RegionLabel.TabIndex = 3;
-            // 
-            // ISOLabel
-            // 
-            ISOLabel.AutoSize = true;
-            ISOLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            ISOLabel.Location = new Point(14, 102);
-            ISOLabel.Name = "ISOLabel";
-            ISOLabel.Size = new Size(0, 28);
-            ISOLabel.TabIndex = 2;
-            // 
-            // CountryLabel
-            // 
-            CountryLabel.AutoSize = true;
-            CountryLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            CountryLabel.Location = new Point(14, 61);
-            CountryLabel.Name = "CountryLabel";
-            CountryLabel.Size = new Size(0, 28);
-            CountryLabel.TabIndex = 1;
             // 
             // IPLabel
             // 
             IPLabel.AutoSize = true;
             IPLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            IPLabel.Location = new Point(14, 16);
+            IPLabel.Location = new Point(6, 49);
             IPLabel.Name = "IPLabel";
-            IPLabel.Size = new Size(0, 28);
+            IPLabel.Size = new Size(169, 19);
             IPLabel.TabIndex = 0;
-            // 
-            // GeneralInfoPanel
-            // 
-            GeneralInfoPanel.BorderStyle = BorderStyle.FixedSingle;
-            GeneralInfoPanel.Controls.Add(MachineLabel);
-            GeneralInfoPanel.Controls.Add(CurrentUserLabel);
-            GeneralInfoPanel.Controls.Add(DateLabel);
-            GeneralInfoPanel.Location = new Point(393, 12);
-            GeneralInfoPanel.Name = "GeneralInfoPanel";
-            GeneralInfoPanel.Size = new Size(244, 159);
-            GeneralInfoPanel.TabIndex = 2;
-            GeneralInfoPanel.Paint += GeneralInfoPanel_Paint;
-            // 
-            // MachineLabel
-            // 
-            MachineLabel.AutoSize = true;
-            MachineLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            MachineLabel.Location = new Point(15, 112);
-            MachineLabel.Name = "MachineLabel";
-            MachineLabel.Size = new Size(0, 28);
-            MachineLabel.TabIndex = 2;
-            // 
-            // CurrentUserLabel
-            // 
-            CurrentUserLabel.AutoSize = true;
-            CurrentUserLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            CurrentUserLabel.Location = new Point(15, 64);
-            CurrentUserLabel.Name = "CurrentUserLabel";
-            CurrentUserLabel.Size = new Size(0, 28);
-            CurrentUserLabel.TabIndex = 1;
+            IPLabel.Text = "Public IP Information label";
             // 
             // DateLabel
             // 
             DateLabel.AutoSize = true;
             DateLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            DateLabel.Location = new Point(15, 19);
+            DateLabel.Location = new Point(22, 47);
             DateLabel.Name = "DateLabel";
-            DateLabel.Size = new Size(0, 28);
+            DateLabel.Size = new Size(152, 19);
             DateLabel.TabIndex = 0;
+            DateLabel.Text = "Local Information Label";
+            // 
+            // PIPInfoBox
+            // 
+            PIPInfoBox.Controls.Add(IPLabel);
+            PIPInfoBox.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            PIPInfoBox.Location = new Point(12, 12);
+            PIPInfoBox.Name = "PIPInfoBox";
+            PIPInfoBox.Size = new Size(625, 419);
+            PIPInfoBox.TabIndex = 3;
+            PIPInfoBox.TabStop = false;
+            PIPInfoBox.Text = "Public IP Information";
+            // 
+            // LocalInfoBox
+            // 
+            LocalInfoBox.Controls.Add(DateLabel);
+            LocalInfoBox.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            LocalInfoBox.Location = new Point(227, 437);
+            LocalInfoBox.Name = "LocalInfoBox";
+            LocalInfoBox.Size = new Size(200, 100);
+            LocalInfoBox.TabIndex = 4;
+            LocalInfoBox.TabStop = false;
+            LocalInfoBox.Text = "Local Information";
             // 
             // InfoWindow
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             ClientSize = new Size(649, 559);
-            Controls.Add(GeneralInfoPanel);
-            Controls.Add(IPinfoPanel);
+            Controls.Add(LocalInfoBox);
+            Controls.Add(PIPInfoBox);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
@@ -236,32 +96,18 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "IP Information";
             Load += InfoWindow_Load;
-            IPinfoPanel.ResumeLayout(false);
-            IPinfoPanel.PerformLayout();
-            GeneralInfoPanel.ResumeLayout(false);
-            GeneralInfoPanel.PerformLayout();
+            PIPInfoBox.ResumeLayout(false);
+            PIPInfoBox.PerformLayout();
+            LocalInfoBox.ResumeLayout(false);
+            LocalInfoBox.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel IPinfoPanel;
-        private Panel GeneralInfoPanel;
-        private Label ZipCodeLabel;
-        private Label RegionCodeLabel;
-        private Label RegionLabel;
-        private Label ISOLabel;
-        private Label CountryLabel;
         private Label IPLabel;
-        private Label ASNOrgLabel;
-        private Label TimeZoneLabel;
-        private Label LongLabel;
-        private Label LatLabel;
-        private Label CityLabel;
-        private Label HostnameLabel;
-        private Label CurrentUserLabel;
         private Label DateLabel;
-        private Label MachineLabel;
         private ToolTip InfoWindowToolTip;
+        private GroupBox PIPInfoBox;
+        private GroupBox LocalInfoBox;
     }
 }

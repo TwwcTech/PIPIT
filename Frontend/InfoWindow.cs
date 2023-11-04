@@ -12,28 +12,16 @@ namespace PIPIT.Frontend
 
         private async void InfoWindow_Load(object sender, EventArgs e)
         {
-            InfoWindowToolTip.SetToolTip(IPinfoPanel, "Displays the relative IP information");
-            InfoWindowToolTip.SetToolTip(GeneralInfoPanel, "Displays general information");
+            InfoWindowToolTip.SetToolTip(PIPInfoBox, "Displays the relative IP information");
+            InfoWindowToolTip.SetToolTip(LocalInfoBox, "Displays general information");
 
-            DateLabel.Text = $"Date : {DateTime.Today:ddMMyyyy}";
-            CurrentUserLabel.Text = $"Current User : {Environment.UserName}";
-            MachineLabel.Text = Environment.MachineName;
+            DateLabel.Text = $"Date : {DateTime.Today:ddMMyyyy}\nCurrent User : {Environment.UserName}\nMachine Name : {Environment.MachineName}";
 
             PIPSetters pipSetters = await RequestPIP.RequestJson();
             if (pipSetters != null)
             {
-                IPLabel.Text = pipSetters.ip;
-                CountryLabel.Text = pipSetters.country;
-                ISOLabel.Text = pipSetters.country_iso;
-                RegionLabel.Text = pipSetters.region_name;
-                RegionCodeLabel.Text = pipSetters.region_code;
-                ZipCodeLabel.Text = pipSetters.zip_code;
-                CityLabel.Text = pipSetters.city;
-                LatLabel.Text = $"{pipSetters.latitude}";
-                LongLabel.Text = $"{pipSetters.longitude}";
-                TimeZoneLabel.Text = pipSetters.time_zone;
-                ASNOrgLabel.Text = pipSetters.asn_org;
-                HostnameLabel.Text = pipSetters.hostname;
+                IPLabel.Text = $"{pipSetters.ip}\n{pipSetters.country}\n{pipSetters.country_iso}\n{pipSetters.region_name}\n{pipSetters.region_code}\n{pipSetters.zip_code}\n" +
+                    $"{pipSetters.city}\n{pipSetters.latitude}\n{pipSetters.longitude}\n{pipSetters.time_zone}\n{pipSetters.asn_org}\n{pipSetters.hostname}";
             }
         }
 
