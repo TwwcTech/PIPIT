@@ -3,21 +3,19 @@ using PIPIT.Backend.PublicIP.PIPResources;
 
 namespace PIPIT.Backend.PublicIP
 {
-    internal class RequestPIP
+    internal static class RequestPIP
     {
         public static async Task<PIPSetters> RequestJson()
         {
-            using (HttpClient client = new())
+            using HttpClient client = new();
+            try
             {
-                try
-                {
-                    client.DefaultRequestHeaders.Add("Accept", "application/json");
-                    string jsonContent = await client.GetStringAsync(@"https://ifconfig.co/json");
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+                string jsonContent = await client.GetStringAsync(@"https://ifconfig.co/json");
 
-                    return JsonConvert.DeserializeObject<PIPSetters>(jsonContent)!;
-                }
-                catch (HttpRequestException ex) { throw new HttpRequestException(ex.ToString()); }
+                return JsonConvert.DeserializeObject<PIPSetters>(jsonContent)!;
             }
+            catch (HttpRequestException ex) { throw new HttpRequestException(ex.ToString()); }
         }
     }
 }
