@@ -21,16 +21,9 @@ namespace PIPIT
 
             if (!appRegistrator.IsAppRegistered())
             {
-                DialogResult registerAppResult = MessageBox.Show("App is not registerd, would you like to register the app?", "App Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (registerAppResult == DialogResult.No)
-                {
-                    Application.Exit();
-                }
-                else if (registerAppResult == DialogResult.Yes)
-                {
-                    appRegistrator.RegisterApp();
-                }
+                appRegistrator.RegisterApp();
             }
+
             Shortcutter shortcutter = new();
             if (File.Exists(shortcutter.ShortcutPath))
             {
@@ -69,7 +62,8 @@ namespace PIPIT
 
         private void removeFromStartupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Shortcutter shortcutter = new();
+            shortcutter.DeleteShortcut();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
