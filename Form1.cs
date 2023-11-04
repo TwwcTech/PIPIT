@@ -13,35 +13,31 @@ namespace PIPIT
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-        // If this is not a new device
-        //    if (RegiMan.IsAppRegistered())
-        //    {
-        //        // If startup is enabled
-        //        if (RegiMan.IsStartupEnabled())
-        //        {
-        //            // Start the tray icon and close the main window
-        //            EnableStartupCheckbox.Checked = true;
-        //            Close();
-        //        }
-        //        // Only start the tray icon
-        //        TrayIcon.Visible = true;
-        //    }
-        //    // If this is a new device
-        //    else
-        //    {
-        //        // Warning box showing on first time run
-        //        DialogResult dialogResult = MessageBox.Show("New device detected, continue?", "New Device Setup", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-        //        switch (dialogResult)
-        //        {
-        //            case DialogResult.Yes:
-        //                RegiMan.RegisterApp();
-        //                TrayIcon.Visible = true;
-        //                break;
-        //            case DialogResult.No:
-        //                Dispose();
-        //                break;
-        //        }
-        //    }
+            RegiMan appRegistrator = new()
+            {
+                AppName = "PIPIT",
+                RegistryAppPath = "Software"
+            };
+
+            if (!appRegistrator.IsAppRegistered())
+            {
+                DialogResult registerAppResuiult = MessageBox.Show("App is not registerd, would you like to register the app?", "App Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (registerAppResuiult == DialogResult.No)
+                {
+                    Application.Exit();
+                }
+                else if (registerAppResuiult == DialogResult.Yes)
+                {
+                    appRegistrator.RegisterApp();
+                }
+            }
+            MessageBox.Show("App is registered");
+
+            Shortcutter shortcutter = new();
+            if (File.Exists(shortcutter.ShortcutPath))
+            {
+                Close();
+            }
         }
 
         private void EnableStartupCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -73,17 +69,35 @@ namespace PIPIT
             infoWindow.ShowDialog();
         }
 
+        private void removeFromStartupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Dispose(true);
+            Application.Exit();
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            //WindowState = FormWindowState.Minimized;
-            Visible = false;
-            Hide();
+            if (e.CloseReason == CloseReason.ApplicationExitCall)
+            {
+                Dispose(true);
+            }
+            else
+            {
+                e.Cancel = true;
+                TrayIcon.Visible = true;
+                //WindowState = FormWindowState.Minimized;
+                Visible = false;
+                Hide();
+            }
         }
     }
 }
