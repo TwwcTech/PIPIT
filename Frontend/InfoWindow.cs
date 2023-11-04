@@ -15,7 +15,7 @@ namespace PIPIT.Frontend
             InfoWindowToolTip.SetToolTip(IPinfoPanel, "Displays the relative IP information");
             InfoWindowToolTip.SetToolTip(GeneralInfoPanel, "Displays general information");
 
-            DateLabel.Text = $"Date : {DateTime.Now.ToString("ddMMyyyy")}";
+            DateLabel.Text = $"Date : {DateTime.Today:ddMMyyyy}";
             CurrentUserLabel.Text = $"Current User : {Environment.UserName}";
             MachineLabel.Text = Environment.MachineName;
 

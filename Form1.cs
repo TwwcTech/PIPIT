@@ -13,7 +13,7 @@ namespace PIPIT
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // If this is not a new device
+        // If this is not a new device
         //    if (RegiMan.IsAppRegistered())
         //    {
         //        // If startup is enabled
@@ -80,9 +80,8 @@ namespace PIPIT
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Minimizes app and hides all controls when closing app
             e.Cancel = true;
-            WindowState = FormWindowState.Minimized;
+            //WindowState = FormWindowState.Minimized;
             Visible = false;
             Hide();
         }

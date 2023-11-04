@@ -14,16 +14,6 @@ namespace PIPIT.Backend
             using StreamWriter shortcutWriter = new(shortcutPath!);
             try
             {
-                /* OLD */
-                //shortcutWriter.WriteLine("[Desktop Entry]");
-                //shortcutWriter.WriteLine($"Version={1.0}");
-                //shortcutWriter.WriteLine($"Name={Path.GetFileNameWithoutExtension(shortcutPath)}");
-                //shortcutWriter.WriteLine($"Exec={Assembly.GetExecutingAssembly().Location}");
-                //shortcutWriter.WriteLine("Terminal=false");
-                //shortcutWriter.WriteLine("Type=Application");
-                //shortcutWriter.Flush();
-
-                /* NEW */
                 shortcutWriter.WriteLine("[Desktop Entry]");
                 shortcutWriter.WriteLine($"Version={1.0}");
                 shortcutWriter.WriteLine($"Name={Path.GetFileNameWithoutExtension(shortcutFileName)}");
