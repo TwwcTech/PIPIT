@@ -8,6 +8,7 @@ namespace PIPIT.Backend
         private string? _shortcutFileName;
         private string? _targetFilePath;
         private string? _shortcutPath;
+
         public string? StartupFolderPath
         {
             get => _startupFolderPath;
