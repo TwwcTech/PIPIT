@@ -4,7 +4,7 @@ namespace PIPIT.Backend.WinRegistry
 {
     internal class RegiMan
     {
-        public string? AppName { get; } = "PIPIT";
+        public string? AppName { get; set; } 
         public string? RegistryAppPath { get; set; }
 
         public void RegisterApp()
@@ -12,7 +12,7 @@ namespace PIPIT.Backend.WinRegistry
             using RegistryKey regKey = Registry.CurrentUser.CreateSubKey($"{RegistryAppPath}\\{AppName}");
             try
             {
-                regKey.SetValue("InitDate", DateTime.Now.ToString("ddMMyyyy"));
+                regKey.SetValue("InitDate", DateTime.Today.ToString("ddMMyyyy"));
                 regKey.SetValue("AppVersion", 1.0);
             }
             catch (Exception ex) { ex.ToString(); }
@@ -20,7 +20,7 @@ namespace PIPIT.Backend.WinRegistry
 
         public bool IsAppRegistered()
         {
-            using RegistryKey regStatusKey = Registry.CurrentUser.OpenSubKey($"Software\\{AppName}")!;
+            using RegistryKey regStatusKey = Registry.CurrentUser.OpenSubKey($"{RegistryAppPath}\\{AppName}")!;
             return regStatusKey != null;
         }
     }
