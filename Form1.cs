@@ -51,7 +51,7 @@ namespace PIPIT
             if (EnableStartupCheckbox.Checked)
             {
                 // If shortcut does not exist
-                if (!File.Exists(StaticResources.ShortcutPath))
+                if (!File.Exists(RegiMan.ShortcutPath))
                 {
                     // Create Shortcut
                     Shortcutter.CreateShortcut();
