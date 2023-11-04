@@ -48,5 +48,10 @@ namespace PIPIT.Backend
             }
             catch (Exception ex) { ex.ToString(); }
         }
+
+        public void DeleteShortcut()
+        {
+            File.Delete(ShortcutPath!);
+        }
     }
 }
