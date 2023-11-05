@@ -12,25 +12,33 @@ namespace PIPIT.Backend
         public string? StartupFolderPath
         {
             get => _startupFolderPath;
-            private set => _startupFolderPath = $@"C:\Users\{Environment.UserName}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup";
+            private set => _startupFolderPath = value;
         }
 
         public string? ShortcutFileName
         {
             get => _shortcutFileName;
-            private set => _shortcutFileName = "PIPIT.lnk";
+            private set => _shortcutFileName = value;
         }
 
         public string? TargetFilePath
         {
             get => _targetFilePath;
-            private set => _targetFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, ShortcutFileName!);
+            private set => _targetFilePath = value;
         }
 
         public string? ShortcutPath
         {
             get => _shortcutPath;
-            private set => _shortcutPath = Path.Combine(StartupFolderPath!, ShortcutFileName!);
+            private set => _shortcutPath = value;
+        }
+
+        public Shortcutter()
+        {
+            StartupFolderPath = $@"C:\Users\{Environment.UserName}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup";
+            ShortcutFileName = "PIPIT.lnk";
+            TargetFilePath = Path.Combine(Path.GetDirectoryName(/*Assembly.GetExecutingAssembly().Location*/Application.ExecutablePath)!, ShortcutFileName!);
+            ShortcutPath = Path.Combine(StartupFolderPath!, ShortcutFileName!);
         }
 
         public void CreateShortcut()
