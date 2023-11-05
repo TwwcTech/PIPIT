@@ -73,22 +73,42 @@ namespace PIPIT
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.ApplicationExitCall)
+            switch (e.CloseReason)
             {
-                Dispose(true);
-            }
-            else
-            {
-                e.Cancel = true;
-                TrayIcon.Visible = true;
-                //WindowState = FormWindowState.Minimized;
-                Visible = false;
-                Hide();
+                case CloseReason.ApplicationExitCall:
+                    {
+                        Dispose(true);
+                        break;
+                    }
+                case CloseReason.TaskManagerClosing:
+                    {
+                        Dispose(true);
+                        break;
+                    }
+                case CloseReason.WindowsShutDown:
+                    {
+                        Dispose(true);
+                        break;
+                    }
+                case CloseReason.None:
+                    {
+                        Dispose(true);
+                        break;
+                    }
+                case CloseReason.UserClosing:
+                    {
+                        e.Cancel = true;
+                        TrayIcon.Visible = true;
+                        //WindowState = FormWindowState.Minimized;
+                        Visible = false;
+                        Hide();
+                        break;
+                    }
             }
         }
     }
