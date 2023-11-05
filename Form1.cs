@@ -54,6 +54,11 @@ namespace PIPIT
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (Visible)
+            {
+                Hide();
+            }
+
             Form infoWindow = new InfoWindow();
             infoWindow.ShowDialog();
         }
