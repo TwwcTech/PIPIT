@@ -25,7 +25,7 @@ namespace PIPIT
             }
 
             Shortcutter shortcutter = new();
-            if (File.Exists(shortcutter.ShortcutPath))
+            if (shortcutter.DoesShortcutExistInStartup())
             {
                 Close();
             }
@@ -33,25 +33,22 @@ namespace PIPIT
 
         private void EnableStartupCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            //// If checked is true add app to startup
-            //if (EnableStartupCheckbox.Checked)
-            //{
-            //    // If shortcut does not exist
-            //    if (!File.Exists(RegiMan.ShortcutPath))
-            //    {
-            //        // Create Shortcut
-            //        Shortcutter.CreateShortcut();
-            //    }
-            //    // Add app to startup folder via registry
-            //    RegiMan.AddToStartup();
-            //}
-            //else if (!EnableStartupCheckbox.Checked)
-            //{
-            //    if (RegiMan.IsStartupEnabled())
-            //    {
-            //        RegiMan.RemoveFromStartup();
-            //    }
-            //}
+            if (EnableStartupCheckbox.Checked)
+            {
+                Shortcutter createShortcutManager = new();
+                if (!createShortcutManager.DoesShortcutExistInStartup())
+                {
+                    createShortcutManager.CreateShortcut();
+                }
+            }
+            else if (!EnableStartupCheckbox.Checked)
+            {
+                Shortcutter deleteShortcutManager = new();
+                if (deleteShortcutManager.DoesShortcutExistInStartup())
+                {
+                    deleteShortcutManager.DeleteShortcut();
+                }
+            }
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,7 +60,10 @@ namespace PIPIT
         private void removeFromStartupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Shortcutter shortcutter = new();
-            shortcutter.DeleteShortcut();
+            if (shortcutter.DoesShortcutExistInStartup())
+            {
+                shortcutter.DeleteShortcut();
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
