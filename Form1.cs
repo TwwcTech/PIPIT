@@ -27,6 +27,7 @@ namespace PIPIT
             Shortcutter shortcutter = new();
             if (shortcutter.DoesShortcutExistInStartup())
             {
+                EnableStartupCheckbox.Checked = true;
                 Close();
             }
         }
@@ -68,25 +69,21 @@ namespace PIPIT
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Dispose(true);
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.ApplicationExitCall)
-            {
-                Dispose(true);
-            }
-            else
+            if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
                 TrayIcon.Visible = true;
-                //WindowState = FormWindowState.Minimized;
+                WindowState = FormWindowState.Minimized;
                 Visible = false;
                 Hide();
             }
