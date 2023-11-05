@@ -42,22 +42,22 @@
             // IPLabel
             // 
             IPLabel.AutoSize = true;
-            IPLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            IPLabel.Location = new Point(6, 49);
+            IPLabel.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            IPLabel.Location = new Point(24, 64);
             IPLabel.Name = "IPLabel";
-            IPLabel.Size = new Size(169, 19);
+            IPLabel.Size = new Size(84, 21);
             IPLabel.TabIndex = 0;
-            IPLabel.Text = "Public IP Information label";
+            IPLabel.Text = "Working...";
             // 
             // DateLabel
             // 
             DateLabel.AutoSize = true;
-            DateLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            DateLabel.Location = new Point(22, 47);
+            DateLabel.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            DateLabel.Location = new Point(18, 60);
             DateLabel.Name = "DateLabel";
-            DateLabel.Size = new Size(152, 19);
+            DateLabel.Size = new Size(84, 21);
             DateLabel.TabIndex = 0;
-            DateLabel.Text = "Local Information Label";
+            DateLabel.Text = "Working...";
             // 
             // PIPInfoBox
             // 
@@ -65,7 +65,7 @@
             PIPInfoBox.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
             PIPInfoBox.Location = new Point(12, 12);
             PIPInfoBox.Name = "PIPInfoBox";
-            PIPInfoBox.Size = new Size(625, 419);
+            PIPInfoBox.Size = new Size(431, 359);
             PIPInfoBox.TabIndex = 3;
             PIPInfoBox.TabStop = false;
             PIPInfoBox.Text = "Public IP Information";
@@ -74,9 +74,9 @@
             // 
             LocalInfoBox.Controls.Add(DateLabel);
             LocalInfoBox.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            LocalInfoBox.Location = new Point(227, 437);
+            LocalInfoBox.Location = new Point(18, 377);
             LocalInfoBox.Name = "LocalInfoBox";
-            LocalInfoBox.Size = new Size(200, 100);
+            LocalInfoBox.Size = new Size(425, 170);
             LocalInfoBox.TabIndex = 4;
             LocalInfoBox.TabStop = false;
             LocalInfoBox.Text = "Local Information";
@@ -84,7 +84,7 @@
             // InfoWindow
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
-            ClientSize = new Size(649, 559);
+            ClientSize = new Size(455, 559);
             Controls.Add(LocalInfoBox);
             Controls.Add(PIPInfoBox);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
