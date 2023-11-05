@@ -53,5 +53,10 @@ namespace PIPIT.Backend
         {
             File.Delete(ShortcutPath!);
         }
+
+        public bool DoesShortcutExistInStartup()
+        {
+            return File.Exists(ShortcutPath!);
+        }
     }
 }
