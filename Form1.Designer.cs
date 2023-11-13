@@ -33,11 +33,11 @@
             TrayIcon = new NotifyIcon(components);
             TrayIconMenu = new ContextMenuStrip(components);
             openToolStripMenuItem = new ToolStripMenuItem();
+            showSummaryWindowToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             exitToolStripMenuItem = new ToolStripMenuItem();
-            EnableStartupCheckbox = new CheckBox();
             ExitButton = new Button();
-            removeFromStartupToolStripMenuItem = new ToolStripMenuItem();
+            PiptSummaryLabel = new Label();
             TrayIconMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -51,46 +51,40 @@
             // TrayIconMenu
             // 
             TrayIconMenu.ImageScalingSize = new Size(24, 24);
-            TrayIconMenu.Items.AddRange(new ToolStripItem[] { openToolStripMenuItem, removeFromStartupToolStripMenuItem, toolStripSeparator1, exitToolStripMenuItem });
+            TrayIconMenu.Items.AddRange(new ToolStripItem[] { openToolStripMenuItem, showSummaryWindowToolStripMenuItem, toolStripSeparator1, exitToolStripMenuItem });
             TrayIconMenu.Name = "TrayIconMenu";
-            TrayIconMenu.Size = new Size(190, 98);
+            TrayIconMenu.Size = new Size(205, 98);
             // 
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(189, 22);
+            openToolStripMenuItem.Size = new Size(204, 22);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
+            // 
+            // showSummaryWindowToolStripMenuItem
+            // 
+            showSummaryWindowToolStripMenuItem.Name = "showSummaryWindowToolStripMenuItem";
+            showSummaryWindowToolStripMenuItem.Size = new Size(204, 22);
+            showSummaryWindowToolStripMenuItem.Text = "Show Summary Window";
+            showSummaryWindowToolStripMenuItem.Click += showSummaryWindowToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(186, 6);
+            toolStripSeparator1.Size = new Size(201, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(189, 22);
+            exitToolStripMenuItem.Size = new Size(204, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
-            // 
-            // EnableStartupCheckbox
-            // 
-            EnableStartupCheckbox.AutoSize = true;
-            EnableStartupCheckbox.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            EnableStartupCheckbox.Location = new Point(184, 118);
-            EnableStartupCheckbox.Margin = new Padding(2);
-            EnableStartupCheckbox.Name = "EnableStartupCheckbox";
-            EnableStartupCheckbox.Size = new Size(170, 25);
-            EnableStartupCheckbox.TabIndex = 1;
-            EnableStartupCheckbox.Text = "Enable on Startup";
-            EnableStartupCheckbox.UseVisualStyleBackColor = true;
-            EnableStartupCheckbox.CheckedChanged += EnableStartupCheckbox_CheckedChanged;
             // 
             // ExitButton
             // 
             ExitButton.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            ExitButton.Location = new Point(234, 250);
+            ExitButton.Location = new Point(325, 350);
             ExitButton.Name = "ExitButton";
             ExitButton.Size = new Size(75, 34);
             ExitButton.TabIndex = 2;
@@ -98,21 +92,24 @@
             ExitButton.UseVisualStyleBackColor = true;
             ExitButton.Click += ExitButton_Click;
             // 
-            // removeFromStartupToolStripMenuItem
+            // PiptSummaryLabel
             // 
-            removeFromStartupToolStripMenuItem.Name = "removeFromStartupToolStripMenuItem";
-            removeFromStartupToolStripMenuItem.Size = new Size(189, 22);
-            removeFromStartupToolStripMenuItem.Text = "Remove From Startup";
-            removeFromStartupToolStripMenuItem.Click += removeFromStartupToolStripMenuItem_Click;
+            PiptSummaryLabel.AutoSize = true;
+            PiptSummaryLabel.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            PiptSummaryLabel.Location = new Point(12, 9);
+            PiptSummaryLabel.Name = "PiptSummaryLabel";
+            PiptSummaryLabel.Size = new Size(57, 21);
+            PiptSummaryLabel.TabIndex = 3;
+            PiptSummaryLabel.Text = "label1";
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(560, 320);
+            ClientSize = new Size(717, 405);
             ControlBox = false;
+            Controls.Add(PiptSummaryLabel);
             Controls.Add(ExitButton);
-            Controls.Add(EnableStartupCheckbox);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
@@ -134,10 +131,10 @@
         private NotifyIcon TrayIcon;
         private ContextMenuStrip TrayIconMenu;
         private ToolStripMenuItem exitToolStripMenuItem;
-        private CheckBox EnableStartupCheckbox;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem openToolStripMenuItem;
         private Button ExitButton;
-        private ToolStripMenuItem removeFromStartupToolStripMenuItem;
+        private Label PiptSummaryLabel;
+        private ToolStripMenuItem showSummaryWindowToolStripMenuItem;
     }
 }
