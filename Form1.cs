@@ -1,4 +1,3 @@
-using PIPIT.Backend;
 using PIPIT.Backend.WinRegistry;
 using PIPIT.Frontend;
 
@@ -24,32 +23,19 @@ namespace PIPIT
                 appRegistrator.RegisterApp();
             }
 
-            Shortcutter shortcutter = new();
-            if (shortcutter.DoesShortcutExistInStartup())
-            {
-                EnableStartupCheckbox.Checked = true;
-                Close();
-            }
-        }
-
-        private void EnableStartupCheckbox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (EnableStartupCheckbox.Checked)
-            {
-                Shortcutter createShortcutManager = new();
-                if (!createShortcutManager.DoesShortcutExistInStartup())
-                {
-                    createShortcutManager.CreateShortcut();
-                }
-            }
-            else if (!EnableStartupCheckbox.Checked)
-            {
-                Shortcutter deleteShortcutManager = new();
-                if (deleteShortcutManager.DoesShortcutExistInStartup())
-                {
-                    deleteShortcutManager.DeleteShortcut();
-                }
-            }
+            PiptSummaryLabel.Text = "           Quickly fetch comprehensive public IP details with this tool utilizing ifconfig.co. " +
+                "\r\n\r\n  - Public IP: Identify your network's public IP address." +
+                "\r\n  - Country: Discover your country." +
+                "\r\n  - Country ISO: View the ISO code for your country." +
+                "\r\n  - Region Name: Identify your region by name." +
+                "\r\n  - Region Code: Access the region code information." +
+                "\r\n  - Zip Code: Know your postal code." +
+                "\r\n  - City: Pinpoint your city of connection." +
+                "\r\n  - Longitude: Get the precise longitude of your connection." +
+                "\r\n  - Latitude: Discover the exact latitude of your connection." +
+                "\r\n  - Time Zone: Determine your current time zone." +
+                "\r\n  - ASN Organization: Autonomous System Number Organization associated with your IP." +
+                "\r\n  - Hostname: Identify the hostname associated with your connection.";
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,15 +47,6 @@ namespace PIPIT
 
             Form infoWindow = new InfoWindow();
             infoWindow.ShowDialog();
-        }
-
-        private void removeFromStartupToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Shortcutter shortcutter = new();
-            if (shortcutter.DoesShortcutExistInStartup())
-            {
-                shortcutter.DeleteShortcut();
-            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -92,6 +69,12 @@ namespace PIPIT
                 Visible = false;
                 Hide();
             }
+        }
+
+        private void showSummaryWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Show();
+            WindowState = FormWindowState.Normal;
         }
     }
 }
