@@ -87,7 +87,7 @@
             ClientSize = new Size(455, 559);
             Controls.Add(LocalInfoBox);
             Controls.Add(PIPInfoBox);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
