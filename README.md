@@ -20,11 +20,11 @@ Using PIPIT is straightforward. After launching the application, a dialog window
 
 For the best experience, it is recommended to add PIPIT to your Windows startup folder. This will allow PIPIT to run automatically when you start your computer. Here are the steps to do this:
 
-1. **Create a Shortcut**: Right-click on the PIPIT application and select ‘Create shortcut’ to create a shortcut for PIPIT1.
+1. **Create a Shortcut**: Right-click on the PIPIT application and select ‘Create shortcut’ to create a shortcut for PIPIT.
 
-2. **Open the Startup Folder**: Press ‘Windows+R’ to open the Run dialog box, type ‘shell:startup’, and then press Enter. This will open the Startup folder2.
+2. **Open the Startup Folder**: Press ‘Windows+R’ to open the Run dialog box, type ‘shell:startup’, and then press Enter. This will open the Startup folder.
 
-3. **Add PIPIT to the Startup Folder**: With the Startup folder open, paste the shortcut to PIPIT that you created in step 1 into the Startup folder1.
+3. **Add PIPIT to the Startup Folder**: With the Startup folder open, paste the shortcut to PIPIT that you created in step 1 into the Startup folder.
 
 Now, PIPIT will automatically run when you start your computer, providing you with immediate access to your public IP information.
 
