@@ -35,7 +35,8 @@ namespace PIPIT
                 "\r\n  - Latitude: Discover the exact latitude of your connection." +
                 "\r\n  - Time Zone: Determine your current time zone." +
                 "\r\n  - ASN Organization: Autonomous System Number Organization associated with your IP." +
-                "\r\n  - Hostname: Identify the hostname associated with your connection.";
+                "\r\n  - Hostname: Identify the hostname associated with your connection." +
+                "\r\n\n                             * The main application is located in the taskbar tray icons *";
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)

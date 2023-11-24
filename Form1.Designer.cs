@@ -38,7 +38,11 @@
             exitToolStripMenuItem = new ToolStripMenuItem();
             ExitButton = new Button();
             PiptSummaryLabel = new Label();
+            summaryLabelPanel = new Panel();
+            pipitControlsPanel = new Panel();
             TrayIconMenu.SuspendLayout();
+            summaryLabelPanel.SuspendLayout();
+            pipitControlsPanel.SuspendLayout();
             SuspendLayout();
             // 
             // TrayIcon
@@ -53,7 +57,7 @@
             TrayIconMenu.ImageScalingSize = new Size(24, 24);
             TrayIconMenu.Items.AddRange(new ToolStripItem[] { openToolStripMenuItem, showSummaryWindowToolStripMenuItem, toolStripSeparator1, exitToolStripMenuItem });
             TrayIconMenu.Name = "TrayIconMenu";
-            TrayIconMenu.Size = new Size(205, 98);
+            TrayIconMenu.Size = new Size(205, 76);
             // 
             // openToolStripMenuItem
             // 
@@ -84,7 +88,7 @@
             // ExitButton
             // 
             ExitButton.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            ExitButton.Location = new Point(325, 350);
+            ExitButton.Location = new Point(318, 14);
             ExitButton.Name = "ExitButton";
             ExitButton.Size = new Size(75, 34);
             ExitButton.TabIndex = 2;
@@ -102,14 +106,33 @@
             PiptSummaryLabel.TabIndex = 3;
             PiptSummaryLabel.Text = "label1";
             // 
+            // summaryLabelPanel
+            // 
+            summaryLabelPanel.Controls.Add(PiptSummaryLabel);
+            summaryLabelPanel.Dock = DockStyle.Fill;
+            summaryLabelPanel.Location = new Point(0, 0);
+            summaryLabelPanel.Name = "summaryLabelPanel";
+            summaryLabelPanel.Size = new Size(717, 453);
+            summaryLabelPanel.TabIndex = 4;
+            // 
+            // pipitControlsPanel
+            // 
+            pipitControlsPanel.Controls.Add(ExitButton);
+            pipitControlsPanel.Dock = DockStyle.Bottom;
+            pipitControlsPanel.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            pipitControlsPanel.Location = new Point(0, 393);
+            pipitControlsPanel.Name = "pipitControlsPanel";
+            pipitControlsPanel.Size = new Size(717, 60);
+            pipitControlsPanel.TabIndex = 5;
+            // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(717, 405);
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            ClientSize = new Size(717, 453);
             ControlBox = false;
-            Controls.Add(PiptSummaryLabel);
-            Controls.Add(ExitButton);
+            Controls.Add(pipitControlsPanel);
+            Controls.Add(summaryLabelPanel);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
@@ -122,8 +145,10 @@
             FormClosing += MainForm_FormClosing;
             Load += MainForm_Load;
             TrayIconMenu.ResumeLayout(false);
+            summaryLabelPanel.ResumeLayout(false);
+            summaryLabelPanel.PerformLayout();
+            pipitControlsPanel.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -136,5 +161,7 @@
         private Button ExitButton;
         private Label PiptSummaryLabel;
         private ToolStripMenuItem showSummaryWindowToolStripMenuItem;
+        private Panel summaryLabelPanel;
+        private Panel pipitControlsPanel;
     }
 }
